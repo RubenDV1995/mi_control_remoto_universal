@@ -1,27 +1,20 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/foundation.dart';
 
-final bottomNavigationControllerProvider = StateNotifierProvider<BottomNavigationController, int>((ref) {
-  return BottomNavigationController();
-});
+class BottomNavigationController extends ChangeNotifier {
+  int _currentTab = 0;
+  bool _mounted = true;
 
-class BottomNavigationController extends StateNotifier<int> {
-  BottomNavigationController() : super(0);
+  int get currentTab => _currentTab;
+  bool get mounted => _mounted;
 
-  late int currentTab = 0;
+  void setTab(int index) {
+    _currentTab = index;
+    notifyListeners();
+  }
 
-  void setTab(int index){
-    if(index == 0) {
-      state = 0;
-      currentTab = state;
-    }
-    if(index == 1){
-      state = 1;
-      currentTab = state;
-    }
-    if(index == 2){
-      state =  2;
-      currentTab = state;
-    }
+  @override
+  void dispose() {
+    _mounted = false;
+    super.dispose();
   }
 }
-

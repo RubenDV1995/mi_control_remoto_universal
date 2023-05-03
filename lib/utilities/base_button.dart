@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../design_system_weincode/foundations/foundation_colors.dart';
+
 class BaseButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPress;
@@ -17,7 +19,7 @@ class BaseButton extends StatelessWidget {
     return ClipOval(
       child: Material(
         shadowColor: Colors.transparent,
-        color: backgroundColor,
+        color: backgroundColor?? WeincodeColorsFoundation.backgroundColorButtonsDevices,
         child: InkWell(
           onTap: onPress,
           child: child,

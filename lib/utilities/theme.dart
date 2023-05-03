@@ -1,57 +1,118 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod/riverpod.dart';
 
-enum AppTheme { dark, light }
+import '../design_system_weincode/foundations/foundation_colors.dart';
 
-final appThemeProvider = StateNotifierProvider<_AppThemeState, AppTheme>((ref) => _AppThemeState());
+final darkTheme = ThemeData(
+  scaffoldBackgroundColor: const Color(0xFF1D1F21),
+  canvasColor: Colors.grey[800],
+  shadowColor: ThemeData.dark().shadowColor,
+  brightness: Brightness.dark,
+  primarySwatch: Colors.blue,
+  switchTheme: SwitchThemeData(
+    thumbColor:
+        MaterialStateProperty.all(WeincodeColorsFoundation.primaryColor200),
+    trackColor: MaterialStateProperty.all(Colors.grey[400]),
+  ),
+  colorScheme: const ColorScheme.dark(
+    primary: WeincodeColorsFoundation.backgroundColorButtonDarkMode,
+    secondary: WeincodeColorsFoundation.accentColor,
+  ),
+  dividerColor: Colors.orange,
 
-class _AppThemeState extends StateNotifier<AppTheme> {
-  _AppThemeState() : super(AppTheme.light);
+  ///Text
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(
+      fontSize: 22.0,
+      color: WeincodeColorsFoundation.titleLargeDark,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.titleLargeDark,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.titleLargeDark,
+    ),
+    displayLarge: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.backgroundColorLightMode,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.displayLarge,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.displayLarge,
+    ),
+    headlineSmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    headlineLarge: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+  ),
+);
 
-  void toggleTheme() {
-    if (state == AppTheme.dark) {
-      state = AppTheme.light;
-    } else {
-      state = AppTheme.dark;
-    }
-  }
-}
+final lightTheme = ThemeData(
+  scaffoldBackgroundColor: const Color(0xFFF6F6F6),
+  canvasColor: Colors.grey[800],
+  switchTheme: SwitchThemeData(
+    thumbColor: MaterialStateProperty.all(Colors.grey),
+    trackColor: MaterialStateProperty.all(Colors.grey[300]),
+  ),
+  colorScheme: const ColorScheme.dark(
+    primary: Colors.white,
+    secondary: WeincodeColorsFoundation.primaryColor200,
+  ),
+  primarySwatch: Colors.grey,
+  primaryColor: WeincodeColorsFoundation.accentColor,
+  dividerColor: Colors.orange,
 
-ThemeData getTheme(BuildContext context, AppTheme appTheme) {
-  ThemeData _theme;
-
-  if (appTheme == AppTheme.dark) {
-    _theme = ThemeData(
-      canvasColor: _DarkThemeColors.canvasColor,
-      scaffoldBackgroundColor: _DarkThemeColors.scaffoldBackgroundColor,
-      shadowColor: ThemeData.dark().shadowColor,
-      primarySwatch: Colors.deepOrange,
-      switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.all(Colors.grey),
-        trackColor: MaterialStateProperty.all(Colors.grey),
-      ),
-      colorScheme: const ColorScheme.dark(
-        primary: Colors.deepOrange,
-        secondary: Colors.deepOrangeAccent,
-      ),
-    );
-  } else if (appTheme == AppTheme.light) {
-    _theme = ThemeData.light().copyWith(
-      canvasColor: Colors.white,
-      scaffoldBackgroundColor: _LightThemeColors.scaffoldBackgroundColor,
-    );
-  } else {
-    _theme = ThemeData();
-  }
-
-  return _theme;
-}
-
-class _DarkThemeColors {
-  static const scaffoldBackgroundColor = Color(0xff303030);
-  static final canvasColor = Colors.grey[800];
-}
-
-class _LightThemeColors {
-  static const scaffoldBackgroundColor = Color(0xFFF8FAFB);
-}
+  ///Text
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(
+      fontSize: 22.0,
+      color: WeincodeColorsFoundation.titleLargeLight,
+      fontFamily: 'Milliard',
+    ),
+    titleMedium: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.titleLargeLight,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.titleLargeLight,
+    ),
+    displayLarge: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.titleLargeLight,
+    ),
+    displayMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.displayLarge,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.displayLarge,
+    ),
+    headlineSmall: TextStyle(
+      fontSize: 14.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    headlineLarge: TextStyle(
+      fontSize: 18.0,
+      color: WeincodeColorsFoundation.primaryColor300,
+    ),
+  ),
+);

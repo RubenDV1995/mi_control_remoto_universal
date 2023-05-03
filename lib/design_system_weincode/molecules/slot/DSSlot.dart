@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/button/general_button.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/text/ds_secondary_text.dart';
-import 'package:unicons/unicons.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/subtitles/subtitle.dart';
+
+import '../../atoms/buttons/DSButton.dart';
 
 class DSSlot extends StatelessWidget {
   final String title;
@@ -18,34 +18,27 @@ class DSSlot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            'assets/images/svg/no_data.svg',
+            'assets/images/svg/undraw_warning_re_eoyh.svg',
             semanticsLabel: 'Acme Logo',
             width: 120,
           ),
           const SizedBox(
             height: 15,
           ),
-          DSSecondaryText(
-            title: title,
+          Subtitle(
+            subtitle: title,
           ),
           onPressed != null
-              ? Column(
-                  children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    PrimaryButton(
-                      onPressed: onPressed,
-                      icon: const Icon(UniconsLine.refresh),
-                      text: titleButton!,
-                    ),
-                  ],
+              ? DSButton(
+                  onPressed: onPressed!,
+                  title: titleButton?? 'Try again',
                 )
               : const SizedBox.shrink()
         ],

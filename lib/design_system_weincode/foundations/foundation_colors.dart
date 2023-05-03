@@ -7,30 +7,27 @@
 //  .╚═════╝.╚═════╝.╚══════╝.╚═════╝.╚═╝..╚═╝╚══════╝
 //  ..................................................
 
-
 import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/design_system_weincode/tokens/color.dart';
 
 class WeincodeColorsFoundation {
   WeincodeColorsFoundation._();
 
-  static const Color primaryColor = WeincodeColors.primarySpaceCadet;
-  static const Color bgGray = WeincodeColors.secondaryGrayShadow;
-  static const Color bgDark = WeincodeColors.darkColor;
-  static const Color colorButtonPrimary = WeincodeColors.primarySpaceCadet;
-  static const MaterialColor primaryColorMat = WeincodeColors.brandPrimaryMat;
-  static const Color colorButtonSecondary = WeincodeColors.textCharcoal2;
-  static const Color colorWhite = WeincodeColors.primaryWhite;
-  static const Color darkTextColors = WeincodeColors.textCharcoal3;
-  static const Color lightTextColors = WeincodeColors.secondaryCharcoal;
-  static const Color lightGreyTextColors = WeincodeColors.secondaryCharcoal;
-  static const Color bodyColor = WeincodeColors.secondaryCharcoal;
-  static const Color bodyTextColor = WeincodeColors.textCharcoal1;
-  static const Color cardBgColor = WeincodeColors.primaryWhite;
-  static const Color cardCircularBgColor = WeincodeColors.stateBlueLight;
-  static const Color infoBgColor = WeincodeColors.stateBlue;
-  static const Color warningBgColor = WeincodeColors.stateYellow;
-  static const Color succcessBgColor = WeincodeColors.stateGreen;
-  static const Color dangerBgColor = WeincodeColors.stateRedLight;
-  static const Color errorBgColor = WeincodeColors.stateRed;
+  static const Color primaryColor = WeincodeColors.primary100;
+  static const Color primaryColor200 = WeincodeColors.primary200;
+  static const Color primaryColor300 = WeincodeColors.primary300;
+  static const Color accentColor = WeincodeColors.accent100;
+  static const Color unselectedItemColor = WeincodeColors.bg300;
+  static const Color backgroundColorButtonDarkMode = WeincodeColors.bg200;
+  static const Color textColorButtonDarkMode = WeincodeColors.accent200;
+  static const Color subtitleTextColor = WeincodeColors.accent200;
+  static const Color primarySwatchLight = WeincodeColors.accent100;
+  static const Color backgroundColorLightMode = WeincodeColors.text200;
+  static const Color titleLargeLight = WeincodeColors.bg200;
+  static const Color titleLargeDark = WeincodeColors.accent100;
+  static const Color displayLarge = WeincodeColors.accent200;
+  static const Color backgroundColorButtonsDevices = WeincodeColors.bg400;
+  static const Color backgroundToastDark = WeincodeColors.bg100;
+  static const Color textToastDark = WeincodeColors.text100;
+
 }

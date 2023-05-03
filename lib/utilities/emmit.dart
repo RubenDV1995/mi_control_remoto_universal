@@ -1,38 +1,39 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ir_sensor_plugin/ir_sensor_plugin.dart';
 import 'package:isolate_handler/isolate_handler.dart';
+import 'package:mi_control_remoto_universal/utilities/toast.dart';
 
-void emmit(String pattern) {
+void emmit(String pattern) async {
   try {
-    final _isolateName = Random().nextInt(100).toString();
+    final bool hasIrEmitter = await IrSensorPlugin.hasIrEmitter;
+    if (hasIrEmitter) {
+      final _isolateName = Random().nextInt(100).toString();
 
-    _isolates = IsolateHandler();
+      _isolates = IsolateHandler();
 
-    _isolates.spawn(
-      _entryPoint,
-      name: _isolateName,
-      onInitialized: () =>
-          _isolates.send(
-            jsonEncode({
-              'isolate': _isolateName,
-              'pattern': pattern,
-            }),
-            to: _isolateName,
-          ),
-    );
-  } catch(e){
-    Fluttertoast.showToast(
-        msg: "Lo siento no pudimos sincronizarnos",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red.shade400,
-        textColor: Colors.white,
-        fontSize: 16.0
+      _isolates.spawn(
+        _entryPoint,
+        name: _isolateName,
+        onInitialized: () => _isolates.send(
+          jsonEncode({
+            'isolate': _isolateName,
+            'pattern': pattern,
+          }),
+          to: _isolateName,
+        ),
+      );
+    } else {
+      await showToast(
+        title: 'Tu dispositivo no cuenta con sensor infrarojo.',
+        typeToast: TypeToast.error,
+      );
+    }
+  } catch (e) {
+    await showToast(
+      title: 'Lo siento no pudimos sincronizarnos',
+      typeToast: TypeToast.error,
     );
   }
 }

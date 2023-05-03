@@ -1,6 +1,7 @@
-import 'package:mi_control_remoto_universal/core/remote_control/data/datasource/samsung_signal_codes.dart';
 import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
 import 'package:mi_control_remoto_universal/utilities/emmit.dart';
+
+import '../../../data/services/local/samsung_signal_codes.dart';
 
 class SamsungRemoteSignalEmmiter implements SignalEmmiterGlobal {
   @override

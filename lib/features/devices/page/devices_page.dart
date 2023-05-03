@@ -2,48 +2,28 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mi_control_remoto_universal/core/remote_control/models/devices.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/molecules/slot/DSSlot.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/templates/pages/ds_base_page.dart';
-import 'package:mi_control_remoto_universal/features/loading/page/loading_page.dart';
-import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
-import 'package:mi_control_remoto_universal/features/settings/widget/channel_button.dart';
-import 'package:ux_tigomoney_designsystem/molecules/remittances/tdsm_remittances.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/subtitles/subtitle.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/TDTitle.dart';
+import 'package:mi_control_remoto_universal/utilities/toast.dart';
+import 'package:provider/provider.dart';
 
-class DevicesPage extends ConsumerWidget {
-  DevicesPage({Key? key}) : super(key: key);
+import '../../../design_system_weincode/atoms/information/DSInformationPane.dart';
+import '../../../design_system_weincode/atoms/textfiled/text_field_filter_base.dart';
+import '../../../design_system_weincode/templates/pages/ds_base_page.dart';
+import '../../../domain/models/device_model.dart';
+import '../../remote_control/controller/main/main_controller.dart';
+import '../widget/content_device.dart';
+import '../widget/content_tips.dart';
 
-  late int tabIndex;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    tabIndex = ref.read(modelControlProvider.notifier).getTabIndex();
-    return DSBasePage(
-      title: 'Dispositivos',
-      child: Device(
-        tabIndex: tabIndex,
-        ref: ref,
-      ),
-    );
-  }
-}
-
-class Device extends StatefulWidget {
-  final int tabIndex;
-  final WidgetRef ref;
-
-  const Device({Key? key, required this.tabIndex, required this.ref})
-      : super(key: key);
+class DevicesPage extends StatefulWidget {
+  const DevicesPage({Key? key}) : super(key: key);
 
   @override
-  State<Device> createState() => _DeviceState();
+  State<DevicesPage> createState() => _DevicesPageState();
 }
 
-class _DeviceState extends State<Device> {
-  List<Items>? _items;
-  bool _isLoading = true;
+class _DevicesPageState extends State<DevicesPage> {
+  List<Items> currentItems = [];
 
   @override
   void initState() {
@@ -52,83 +32,118 @@ class _DeviceState extends State<Device> {
   }
 
   Future<void> readJsonDevices() async {
-    _isLoading = true;
+    final device = Provider.of<MainController>(context, listen: false);
     try {
       final String response =
           await rootBundle.loadString('assets/json/devices.json');
       Map<String, dynamic> valueMap = json.decode(response);
-      final data = Devices.fromJson(valueMap);
-      setState(() {
-        _items = data.items;
-      });
-      /*
-      await Future.delayed(const Duration(seconds: 2), () {
-        setState(() {
-          _items = null;
-          _isLoading = false;
-        });
-      });
-       */
-      _isLoading = false;
+      final data = DeviceModel.fromJson(valueMap);
+      device.setLoading(true);
+      await Future.delayed(
+        const Duration(seconds: 1),
+        () {
+          currentItems = data.items ?? [];
+          device.getDevices(currentItems);
+        },
+      );
     } catch (e) {
-      _isLoading = false;
-      Fluttertoast.showToast(
-          msg: "Error al recuperar dispositivos",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red.shade400,
-          textColor: Colors.white,
-          fontSize: 16.0);
+      device.getDevices([]);
+      await showToast(
+        title: 'Error al recuperar dispositivos',
+        typeToast: TypeToast.error,
+      );
     }
-    _isLoading = false;
   }
 
-  ControlBrand _setBrand(String nameBrand) {
-    ControlBrand currentControlBrand = ControlBrand.generic;
-    switch (nameBrand) {
-      case 'Genereic':
-        currentControlBrand = ControlBrand.generic;
-        break;
-      case 'Samsumg':
-        currentControlBrand = ControlBrand.samsung;
-        break;
-      case 'LG':
-        currentControlBrand = ControlBrand.lg;
-        break;
-      default:
-        break;
+  void _runFilter({
+    required String enteredKeyword,
+    required BuildContext context,
+  }) async {
+    List<Items> _results = [];
+    final _currentDevices = currentItems;
+    if (enteredKeyword.isEmpty) {
+      _results = _currentDevices;
+    } else {
+      _results = _currentDevices
+          .where(
+            (element) => element.brand.toLowerCase().contains(
+                  enteredKeyword.toLowerCase(),
+                ),
+          )
+          .toList();
     }
-    return currentControlBrand;
+    Provider.of<MainController>(context, listen: false).getDevices(_results);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading == true) {
-      return const LoadingPage(title: 'Buscando... \nPorfavor espere');
-    }
-    return _items != null
-        ? ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: _items?.length,
-            itemBuilder: (BuildContext context, int index) {
-              return TDSMRemittances(type: TDSMRemittance.moneyGram, onTapFunction: (){}, isTap: false);
-              return ChannelButton(
-                urlImage: _items![index].urlImage,
-                onPress: () {
-                  widget.ref
-                      .read(modelControlProvider.notifier)
-                      .setControlType(_setBrand(_items![index].brand));
-                },
-                deviceStatus: index == widget.tabIndex ? true : false,
-              );
-            },
-          )
-        : DSSlot(
-            title: 'Lo sentimos \nNo hay dispositivos',
-            titleButton: 'Volver a intentar',
-            onPressed: readJsonDevices,
+    return DSBasePage(
+      template: DSTemplate.devices,
+      padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 20.0),
+      child: Builder(
+        builder: (context) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TDTitle(
+                      title: 'Simplify Your Life with UniRemote.',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Subtitle(
+                      subtitle:
+                          'Revolutionize the way you control your devices with just one powerful app.',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const DSInformationPane(),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const TDTitle(
+                      title: 'Devices',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ContentDevices(
+                      onPressed: readJsonDevices,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    TextFieldFilterBase(
+                      onChanged: (value) => _runFilter(
+                        context: context,
+                        enteredKeyword: value,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const TDTitle(
+                      title: 'Tips',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+              const ContentTips(),
+            ],
           );
+        },
+      ),
+    );
   }
 }

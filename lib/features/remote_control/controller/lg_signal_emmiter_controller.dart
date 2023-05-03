@@ -1,6 +1,6 @@
-import 'package:mi_control_remoto_universal/core/remote_control/data/datasource/lg_signal_codes.dart';
 import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
 
+import '../../../data/services/local/lg_signal_codes.dart';
 import '../../../utilities/emmit.dart';
 
 class RemoteSignalEmmiter implements SignalEmmiterGlobal {
