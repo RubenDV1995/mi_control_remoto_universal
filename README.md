@@ -4,5 +4,6 @@ Android app
 
 ## Screenshot
 
-- Screenshot:  ![alt avatar trn](assets/images/playstore/screen1.jpg "screen1")
+- Screenshot:  ![screenshot](assets/images/playstore/screen1.jpg?raw=true "screen1")
+
 
