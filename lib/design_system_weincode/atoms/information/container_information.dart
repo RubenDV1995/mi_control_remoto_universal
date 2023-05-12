@@ -1,4 +1,4 @@
-part of 'DSInformationPane.dart';
+part of 'inoformation_pane.dart';
 
 class ContainerInformation extends StatelessWidget {
   final String title;
@@ -14,14 +14,16 @@ class ContainerInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontSize: 14,
+              ),
             ),
             const SizedBox(
               height: 10,

@@ -2,18 +2,21 @@
   "items": [
     {
       "id": "1",
-      "brand": "Genereic",
-      "urlImage": "https://cdn-icons-png.flaticon.com/512/85/85711.png"
+      "brand": "Generico",
+      "urlImage": "",
+      "numberButtons": 31
     },
     {
       "id": "2",
       "brand": "Samsumg",
-      "urlImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png"
+      "urlImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png",
+      "numberButtons": 32
     },
     {
       "id": "3",
       "brand": "LG",
-      "urlImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/2560px-LG_logo_%282015%29.svg.png"
+      "urlImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/2560px-LG_logo_%282015%29.svg.png",
+      "numberButtons": 23
     }
   ]
 }

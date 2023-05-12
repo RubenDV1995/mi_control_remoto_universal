@@ -3,7 +3,7 @@ import 'package:mi_control_remoto_universal/features/remote_control/controller/m
 import '../../../data/services/local/lg_signal_codes.dart';
 import '../../../utilities/emmit.dart';
 
-class RemoteSignalEmmiter implements SignalEmmiterGlobal {
+class LgRemoteSignalEmmiter implements SignalEmmiterGlobal {
   @override
   void backwards() {
     emmit(LgSignalCodes.fastBackward);

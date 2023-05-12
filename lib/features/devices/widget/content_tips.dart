@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/TDTitle.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
 import 'package:mi_control_remoto_universal/domain/models/tip_model.dart';
+import 'package:mi_control_remoto_universal/utilities/constants/constants.dart';
 
 import '../../../design_system_weincode/atoms/badge/badge_base.dart';
 import '../../../utilities/bottom_sheet/bottom_sheet_base.dart';
@@ -12,9 +13,9 @@ class ContentTips extends StatefulWidget {
   const ContentTips({Key? key}) : super(key: key);
 
   static  List<TipModel> listTips = [
-    TipModel(title: 'Personalizacion al maximo', description: 'Personaliza al maximo los colores y agrega imaganes geniales.', url: 'assets/images/jpg/background_tip1.jpg', isNew: false),
-    TipModel(title: 'Filtrado por modelo', description: 'Utiliza la funcion de filtrado para enconrar tu dsipositivo', url: 'assets/images/jpg/background_tip2.jpg', isNew: true),
-    TipModel(title: 'Manten la app actualizada', description: 'Manten la app actualizada y no te pierdas del mejor contenido', url: 'assets/images/jpg/background_tip3.jpg', isNew: false)
+    TipModel(title: 'Personalizacion al maximo', description: 'En la sección de ajustes de nuestra app móvil de control remoto universal, podrás personalizar al máximo tu experiencia. \n\nDesde aquí podrás acceder a la opción de modo oscuro, para adaptar la apariencia de la app a ambientes con poca luz y cuidar de tus ojos. Además, en la sección de ajustes también encontrarás la opción de selector de wallpaper, para que puedas cambiar el fondo de pantalla de la app y hacerla aún más personalizada. \n\nAsí que no esperes más, ¡personaliza al máximo tu experiencia con nuestra app de control remoto universal!', url: 'assets/images/jpg/background_tip1.jpg', isNew: false),
+    TipModel(title: 'Manten la app actualizada', description: 'Mantener actualizada la aplicación de control remoto universal es importante para acceder a nuevas funciones y mejoras de seguridad. \n\nLa mayoría de las aplicaciones ofrecen actualización automática, lo que facilita el proceso. \n\nActualiza tu aplicación y disfruta al máximo de la experiencia de controlar tus dispositivos desde tu dispositivo móvil. \n\n¡No te quedes atrás, mantente al día!', url: 'assets/images/jpg/background_tip2.jpg', isNew: true),
+    TipModel(title: 'Filtro por modelo', description: 'Simplemente puedes utilizar el campo de filtrado que se encuentra debajo de la lista de dispositivos. \n\nAllí podrás ingresar el modelo exacto que estás buscando y nuestra app de control remoto universal te mostrará los resultados correspondientes. \n\nEs una función muy útil y eficiente, especialmente si tienes un modelo específico en mente y deseas encontrarlo rápidamente sin tener que navegar por cientos de opciones. \n\nNo esperes más y utiliza nuestra función de filtrado para encontrar el modelo exacto que necesitas en nuestra app de control remoto universal. \n\n¡Todo el control que necesitas al alcance de tu mano!', url: 'assets/images/jpg/background_tip3.jpg', isNew: false)
   ];
 
   @override
@@ -39,6 +40,7 @@ class _ContentTipsState extends State<ContentTips> {
         );
       },
       options: CarouselOptions(
+        height: 200,
         aspectRatio: 2.0,
         viewportFraction: 0.8,
         initialPage: 0,

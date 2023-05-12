@@ -27,7 +27,7 @@ void emmit(String pattern) async {
     } else {
       await showToast(
         title: 'Tu dispositivo no cuenta con sensor infrarojo.',
-        typeToast: TypeToast.error,
+        typeToast: TypeToast.info,
       );
     }
   } catch (e) {

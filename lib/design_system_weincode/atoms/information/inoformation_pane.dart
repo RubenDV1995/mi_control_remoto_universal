@@ -3,11 +3,12 @@ import 'package:mi_control_remoto_universal/design_system_weincode/foundations/f
 import 'package:provider/provider.dart';
 
 import '../../../features/remote_control/controller/main/main_controller.dart';
+import '../../../utilities/constants/constants.dart';
 
 part 'container_information.dart';
 
-class DSInformationPane extends StatelessWidget {
-  const DSInformationPane({Key? key}) : super(key: key);
+class InformationPane extends StatelessWidget {
+  const InformationPane({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +26,16 @@ class DSInformationPane extends StatelessWidget {
           child: Row(
             children: [
               ContainerInformation(
-                title: 'Your device',
+                title: lblYourModel,
                 subTitle: currentDevice.currentItem.brand,
               ),
               Container(
                 width: 1,
-                height: 50,
+                height: 40,
                 color: WeincodeColorsFoundation.primaryColor300,
               ),
               ContainerInformation(
-                title: 'Available devices',
+                title: lblModel,
                 subTitle: currentDevice.devicesLength.toString(),
               )
             ],

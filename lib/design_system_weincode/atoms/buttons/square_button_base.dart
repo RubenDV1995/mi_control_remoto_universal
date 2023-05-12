@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 
-class DSSquareButton extends StatelessWidget {
-  final void Function() onPressed;
-  final String title;
-  final String? urlImage;
+import '../../../domain/models/device_model.dart';
+import '../image/image_network_base.dart';
+import '../titles/title_base.dart';
 
-  const DSSquareButton({
+class SquareButtonBase extends StatelessWidget {
+  final void Function() onPressed;
+  final Items item;
+
+  const SquareButtonBase({
     required this.onPressed,
-    required this.title,
-    this.urlImage,
+    required this.item,
     Key? key,
   }) : super(key: key);
 
@@ -25,17 +27,17 @@ class DSSquareButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (urlImage != null)
                 Container(
+                  width: 50,
+                  height: 50,
                   decoration: const BoxDecoration(
                     color: WeincodeColorsFoundation.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Image.network(
-                      urlImage!,
-                      height: 50,
+                    child: ImageNetworkBase(
+                      item: item,
                       width: 50,
                     ),
                   ),
@@ -52,7 +54,7 @@ class DSSquareButton extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        title,
+                        item.brand,
                         style: const TextStyle(
                           fontSize: 16,
                           color:
@@ -62,13 +64,9 @@ class DSSquareButton extends StatelessWidget {
                       const SizedBox(
                         height: 2,
                       ),
-                      const Text(
-                        '21',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                      TitleBase(
+                        title: item.numberButtons.toString(),
+                        size: 45,
                       ),
                     ],
                   ),

@@ -1,16 +1,13 @@
-# mi_control_remoto_universal
+# Control Remoto Universal TV | UniRemote
 
-A new Flutter project.
+Android app
 
-## Getting Started
+## Screenshot
 
-This project is a starting point for a Flutter application.
+![screenshot1](assets/images/playstore/screen1.jpg?raw=true "screen1")
+![screenshot2](assets/images/playstore/screen2.jpg?raw=true "screen2")
+![screenshot3](assets/images/playstore/screen3.jpg?raw=true "screen3")
+![screenshot4](assets/images/playstore/screen4.jpg?raw=true "screen4")
+![screenshot5](assets/images/playstore/screen5.jpg?raw=true "screen5")
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

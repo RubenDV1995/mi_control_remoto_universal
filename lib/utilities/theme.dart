@@ -22,11 +22,12 @@ final darkTheme = ThemeData(
   ///Text
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-      fontSize: 22.0,
+      fontSize: 20.0,
       color: WeincodeColorsFoundation.titleLargeDark,
+      fontFamily: 'Milliard',
     ),
     titleMedium: TextStyle(
-      fontSize: 18.0,
+      fontSize: 16.0,
       color: WeincodeColorsFoundation.titleLargeDark,
     ),
     titleSmall: TextStyle(
@@ -36,6 +37,7 @@ final darkTheme = ThemeData(
     displayLarge: TextStyle(
       fontSize: 18.0,
       color: WeincodeColorsFoundation.backgroundColorLightMode,
+      fontFamily: 'Nunito',
     ),
     displayMedium: TextStyle(
       fontSize: 16.0,
@@ -56,6 +58,15 @@ final darkTheme = ThemeData(
     headlineLarge: TextStyle(
       fontSize: 18.0,
       color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 20.0,
+      color: WeincodeColorsFoundation.textToastDark,
+      fontFamily: 'Milliard',
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.backgroundColorLightMode,
     ),
   ),
 );
@@ -78,12 +89,12 @@ final lightTheme = ThemeData(
   ///Text
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-      fontSize: 22.0,
+      fontSize: 20.0,
       color: WeincodeColorsFoundation.titleLargeLight,
       fontFamily: 'Milliard',
     ),
     titleMedium: TextStyle(
-      fontSize: 18.0,
+      fontSize: 16.0,
       color: WeincodeColorsFoundation.titleLargeLight,
     ),
     titleSmall: TextStyle(
@@ -93,6 +104,7 @@ final lightTheme = ThemeData(
     displayLarge: TextStyle(
       fontSize: 18.0,
       color: WeincodeColorsFoundation.titleLargeLight,
+      fontFamily: 'Nunito',
     ),
     displayMedium: TextStyle(
       fontSize: 16.0,
@@ -113,6 +125,15 @@ final lightTheme = ThemeData(
     headlineLarge: TextStyle(
       fontSize: 18.0,
       color: WeincodeColorsFoundation.primaryColor300,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 20.0,
+      color: WeincodeColorsFoundation.textToastDark,
+      fontFamily: 'Milliard',
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 16.0,
+      color: WeincodeColorsFoundation.backgroundColorLightMode,
     ),
   ),
 );

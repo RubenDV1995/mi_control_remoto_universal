@@ -86,4 +86,17 @@ abstract class SignalEmmiterGlobal {
   void theme();
 
   void guide();
+
+  void inCycle();
+
+  void jump();
+
+  void display();
+
+  void dss();
+
+  void interests();
+
+  void options();
+
 }

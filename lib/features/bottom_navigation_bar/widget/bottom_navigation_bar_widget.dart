@@ -3,6 +3,7 @@ import 'package:mi_control_remoto_universal/design_system_weincode/foundations/f
 import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../../utilities/constants/constants.dart';
 import '../controller/bottom_navigation_controller.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
@@ -27,21 +28,21 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
                 UniconsLine.tv_retro,
                 size: 28,
               ),
-              label: 'Remote_Control',
+              label: lblControl,
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 UniconsLine.apps,
                 size: 28,
               ),
-              label: 'Models',
+              label: lblDevices,
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 UniconsLine.setting,
                 size: 28,
               ),
-              label: 'Settings',
+              label: lblSettings,
             ),
           ],
           currentIndex: bottomNavigationController.currentTab,

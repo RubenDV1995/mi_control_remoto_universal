@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mi_control_remoto_universal/domain/repositories/control_repository.dart';
 import 'package:provider/provider.dart';
 
-import '../../../design_system_weincode/atoms/buttons/DSSquareButton.dart';
-import '../../../design_system_weincode/molecules/slot/DSSlot.dart';
+import '../../../design_system_weincode/atoms/buttons/square_button_base.dart';
+import '../../../design_system_weincode/molecules/slot/slot_base.dart';
 import '../../../utilities/skeletons/device_skeleton.dart';
 import '../../remote_control/controller/main/main_controller.dart';
 
@@ -33,17 +34,18 @@ class ContentDevices extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Row(
               children: [
-                DSSquareButton(
+                SquareButtonBase(
                   onPressed: () {
                     Provider.of<MainController>(context, listen: false)
-                        .changeDevice(
+                        .setDevice(
                       currentDevice.devices[index],
                     );
-                    Provider.of<MainController>(context, listen: false)
-                        .setRemoteSignalEmmiter();
+                    Provider.of<ControlRepository>(context, listen: false)
+                        .setDeviceId(
+                      int.parse(currentDevice.devices[index].id),
+                    );
                   },
-                  title: currentDevice.devices[index].brand,
-                  urlImage: currentDevice.devices[index].urlImage,
+                  item: currentDevice.devices[index],
                 ),
                 const SizedBox(
                   width: 10,
@@ -55,10 +57,12 @@ class ContentDevices extends StatelessWidget {
       );
     } else if (currentDevice.devices.isEmpty &&
         currentDevice.isLoading == false) {
-      return DSSlot(
-        title: 'Lo sentimos \nNo hay dispositivos',
+      return SlotBase(
+        title: 'No se encontraron dispositivos. \nPor favor, inténtalo de nuevo más tarde. \nGracias.',
+        subtitle: 'Ups!',
         titleButton: 'Volver a intentar',
         onPressed: onPressed,
+        customDesign: true,
       );
     } else {
       return const SizedBox.shrink();
