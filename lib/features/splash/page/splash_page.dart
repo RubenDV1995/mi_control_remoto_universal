@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
   _init() async {
     await Future.delayed(
       const Duration(
-        seconds: 3,
+        seconds: 1,
       ),
       () => {
         _goTo(Routes.home),
@@ -40,10 +40,13 @@ class _SplashPageState extends State<SplashPage> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: WeincodeColorsFoundation.primaryColor,
+      color: WeincodeColorsFoundation.titleLargeLight,
       child: Center(
-        child: Image.network(
-          'https://cdn.freebiesupply.com/logos/large/2x/control-logo-png-transparent.png',
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Image.asset(
+            'assets/images/png/logo_png.png',
+          ),
         ),
       ),
     );

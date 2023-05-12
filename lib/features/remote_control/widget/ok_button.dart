@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/buttons/title_buttons_base.dart';
 import 'package:mi_control_remoto_universal/utilities/base_button.dart';
 
 class OkButton extends StatelessWidget {
@@ -16,12 +17,8 @@ class OkButton extends StatelessWidget {
       child: Container(
         color: Colors.grey.withOpacity(.1),
         child: const Center(
-          child: Text(
-            'OK',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+          child: TitleButtonsBase(
+            title: 'OK',
           ),
         ),
       ),

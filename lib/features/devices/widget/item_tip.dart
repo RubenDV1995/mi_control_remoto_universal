@@ -10,45 +10,56 @@ class ItemTip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () async {
-        await showModalBottomSheetBase(
-          context: context,
-          content: const Text(''),
-          title: tipModel.title,
-        );
-      },
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 130,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(tipModel.url),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(10),
-                topLeft: Radius.circular(10),
-              ),
-            ),
-            child: tipModel.isNew
-                ? Stack(
-                    children: const [
-                      Positioned(
-                        top: 10,
-                        left: 10,
-                        child: BadgeBase(title: 'New',)
-                      ),
-                    ],
-                  )
-                : const SizedBox.shrink(),
-          ),
-          TDTitle(
+    return SizedBox(
+      height: 200,
+      child: InkWell(
+        onTap: () async {
+          await showModalBottomSheetBase(
+            context: context,
+            child: Text(tipModel.description),
             title: tipModel.title,
-          ),
-        ],
+            tipModel: tipModel,
+          );
+        },
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(tipModel.url),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
+                ),
+              ),
+              child: tipModel.isNew
+                  ? Stack(
+                      children: const [
+                        Positioned(
+                          top: 10,
+                          left: 10,
+                          child: BadgeBase(
+                            title: lblNew,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox.shrink(),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            TitleBase(
+              title: tipModel.title,
+              size: 18,
+            ),
+          ],
+        ),
       ),
     );
   }

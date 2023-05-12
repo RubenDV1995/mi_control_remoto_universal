@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 
-class DSButton extends StatelessWidget {
+class ButtonBase extends StatelessWidget {
   final void Function() onPressed;
   final String title;
   final String? urlImage;
 
-  const DSButton({
+  const ButtonBase({
     required this.onPressed,
     required this.title,
     this.urlImage,
@@ -18,6 +20,10 @@ class DSButton extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
         onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: WeincodeColorsFoundation.primaryColor,
+
+          ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -33,11 +39,9 @@ class DSButton extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                ),
+              TitleBase(
+                title: title,
+                size: 15,
               ),
             ],
           ),

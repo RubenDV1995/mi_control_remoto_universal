@@ -60,8 +60,8 @@ class SamsungRemoteSignalEmmiter implements SignalEmmiterGlobal {
   }
 
   @override
-  void enter() {
-    emmit(SamsungSignalCodes.enter);
+  void ok() {
+    emmit(SamsungSignalCodes.ok);
   }
 
   @override

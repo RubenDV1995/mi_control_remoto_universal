@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 import 'package:unicons/unicons.dart';
 
-enum DSTemplate { splashscreen, home, devices, settings }
+import '../../../utilities/constants/constants.dart';
+import '../../atoms/titles/title_base.dart';
 
-class DSBasePage extends StatelessWidget {
+enum PageTemplate { splashscreen, home, devices, settings }
+
+class PageBase extends StatelessWidget {
   final String? title;
   final EdgeInsetsGeometry? padding;
   final Widget child;
-  final DSTemplate template;
+  final PageTemplate template;
 
-  const DSBasePage({
+  const PageBase({
     required this.template,
     required this.child,
     Key? key,
@@ -20,14 +23,14 @@ class DSBasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (template == DSTemplate.settings) {
+    if (template == PageTemplate.settings) {
       return SettingsTemplate(
         title: title,
         child: child,
         padding: padding,
       );
     }
-    if (template == DSTemplate.devices) {
+    if (template == PageTemplate.devices) {
       return DevicesTemplate(
         title: title,
         child: child,
@@ -74,7 +77,7 @@ class SettingsTemplate extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBarTemplate(
         iconData: UniconsLine.setting,
-        title: title ?? 'Settings',
+        title: title ?? lblSettings,
       ),
       body: BodyTemplate(
         body: child,
@@ -102,7 +105,7 @@ class DevicesTemplate extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBarTemplate(
         iconData: UniconsLine.apps,
-        title: title ?? 'Devices',
+        title: title ?? lblDevices,
       ),
       body: BodyTemplate(
         body: child,
@@ -135,9 +138,9 @@ class AppBarTemplate extends StatelessWidget with PreferredSizeWidget {
           const SizedBox(
             width: 10,
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
+          TitleBase(
+            title: title,
+            size: 18,
           ),
         ],
       ),

@@ -15,6 +15,9 @@ Future<bool?> showToast({
   if (typeToast == TypeToast.error) {
     return await showErrorToast(title: title);
   }
+  if (typeToast == TypeToast.info) {
+    return await showInfoToast(title: title);
+  }
   return await Fluttertoast.showToast(
     msg: title,
     toastLength: Toast.LENGTH_SHORT,
@@ -36,6 +39,20 @@ Future<bool?> showErrorToast({
     timeInSecForIosWeb: 1,
     backgroundColor: WeincodeColorsFoundation.backgroundToastDark,
     textColor: WeincodeColorsFoundation.textToastDark,
+    fontSize: 16.0,
+  );
+}
+
+Future<bool?> showInfoToast({
+  required String title,
+}) async {
+  return await Fluttertoast.showToast(
+    msg: title,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: WeincodeColorsFoundation.primaryColor300,
+    textColor: WeincodeColorsFoundation.titleLargeLight,
     fontSize: 16.0,
   );
 }

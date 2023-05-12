@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/buttons/title_buttons_base.dart';
 import 'package:mi_control_remoto_universal/features/remote_control/widget/shadowed_button.dart';
 
 class NumberButton extends StatelessWidget {
@@ -27,11 +28,9 @@ class NumberButton extends StatelessWidget {
           data: IconTheme.of(context).copyWith(
             size: 32,
           ),
-          child: Text(
-            number,
-            style: const TextStyle(
-              fontSize: 25,
-            ),
+          child: TitleButtonsBase(
+            title: number,
+            size: 22,
           ),
         ),
       ),
