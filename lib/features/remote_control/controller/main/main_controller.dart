@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/domain/models/device_model.dart';
 
-import '../lg_signal_emmiter_controller.dart';
-import '../samsung_signal_emmiter_controller.dart';
-import '../standard_signal_emmiter_controller.dart';
-import 'main_signal_emmiter_controller.dart';
+import '../lg_signal_emit_controller.dart';
+import '../samsung_signal_emit_controller.dart';
+import '../standard_signal_emit_controller.dart';
+import 'main_signal_emit_controller.dart';
 
 class MainController extends ChangeNotifier {
   List<Items> _devices = [];
@@ -18,17 +18,13 @@ class MainController extends ChangeNotifier {
   );
   bool _isLoading = true;
   int _devicesLength = 0;
-  late SignalEmmiterGlobal _signalEmmiterGlobal = SamsungRemoteSignalEmmiter();
+  late SignalEmitGlobal _signalEmitGlobal = SamsungRemoteSignalEmit();
 
   List<Items> get devices => _devices;
-
   Items get currentItem => _currentItem;
-
   bool get isLoading => _isLoading;
-
   int get devicesLength => _devicesLength;
-
-  SignalEmmiterGlobal get signalEmmiterGlobal => _signalEmmiterGlobal;
+  SignalEmitGlobal get signalEmitGlobal => _signalEmitGlobal;
 
   void getDevices(List<Items> _items) {
     _devicesLength = _items.length;
@@ -39,14 +35,19 @@ class MainController extends ChangeNotifier {
 
   void setDevice(Items device) {
     _currentItem = device;
-    _signalEmmiterGlobal = setRemoteSignalEmmiter(device.id);
+    _signalEmitGlobal = setRemoteSignalEmit(
+      idDevice: device.id,
+    );
     _isLoading = false;
     notifyListeners();
   }
 
-  void setDeviceById({required String deviceId, required List<Items> items}) {
-    _signalEmmiterGlobal = setRemoteSignalEmmiter(
-      deviceId,
+  void setDeviceById({
+    required String deviceId,
+    required List<Items> items,
+  }) {
+    _signalEmitGlobal = setRemoteSignalEmit(
+      idDevice: deviceId,
     );
     _currentItem = getItemById(
       deviceId: deviceId,
@@ -61,14 +62,16 @@ class MainController extends ChangeNotifier {
     notifyListeners();
   }
 
-  SignalEmmiterGlobal setRemoteSignalEmmiter(String idDevice) {
+  SignalEmitGlobal setRemoteSignalEmit({
+    required String idDevice,
+  }) {
     if (idDevice == '2') {
-      return SamsungRemoteSignalEmmiter();
+      return SamsungRemoteSignalEmit();
     }
     if (idDevice == '3') {
-      return LgRemoteSignalEmmiter();
+      return LgRemoteSignalEmit();
     }
-    return StandardRemoteSignalEmmiter();
+    return StandardRemoteSignalEmit();
   }
 
   Items getItemById({

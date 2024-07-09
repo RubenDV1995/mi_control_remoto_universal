@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
 import 'package:mi_control_remoto_universal/utilities/constants/constants.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../design_system_weincode/atoms/badge/badge_base.dart';
+import '../../design_system/atoms/badge/badge_base.dart';
+import '../../design_system/atoms/titles/title_base.dart';
 import '../../domain/models/tip_model.dart';
 
 Future<T?> showModalBottomSheetBase<T>({

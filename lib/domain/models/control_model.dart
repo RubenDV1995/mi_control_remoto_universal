@@ -1,4 +1,4 @@
-import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
+import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emit_controller.dart';
 
 class ControlModel {
   ControlModel({

@@ -1,6 +1,6 @@
 enum ControlBrand { generic, samsung, lg }
 
-abstract class SignalEmmiterGlobal {
+abstract class SignalEmitGlobal {
   void turnOnOff();
 
   void home();

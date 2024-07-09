@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>95532053779-b01mhfrcc27n5781d1p8drkepqr3t9r2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.95532053779-b01mhfrcc27n5781d1p8drkepqr3t9r2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyACQHFRLPTWtjzb8LrH58ub38ZOg3Yv5MU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>95532053779</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rubendv.miControlRemotoUniversal</string>
+	<key>PROJECT_ID</key>
+	<string>uniremote-aade5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>uniremote-aade5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:95532053779:ios:732debe27588f33b0016e6</string>
+</dict>
+</plist>

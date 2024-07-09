@@ -1,9 +1,9 @@
-import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
+import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emit_controller.dart';
 import 'package:mi_control_remoto_universal/utilities/emmit.dart';
 
 import '../../../data/services/local/samsung_signal_codes.dart';
 
-class SamsungRemoteSignalEmmiter implements SignalEmmiterGlobal {
+class SamsungRemoteSignalEmit implements SignalEmitGlobal {
   @override
   void turnOnOff() {
     emmit(SamsungSignalCodes.turnOnOff);

@@ -8,7 +8,8 @@
 //  ..................................................
 
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/tokens/color.dart';
+
+import '../tokens/color.dart';
 
 class WeincodeColorsFoundation {
   WeincodeColorsFoundation._();

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../../design_system_weincode/atoms/titles/buttons/title_buttons_base.dart';
-import '../../controller/main/main_signal_emmiter_controller.dart';
+import '../../../../design_system/atoms/titles/buttons/title_buttons_base.dart';
+import '../../../../utilities/constants/constants.dart';
+import '../../controller/main/main_signal_emit_controller.dart';
 import '../shadowed_icon_button.dart';
 import '../vertical_buttons.dart';
 
 class VolumeMenu extends StatelessWidget {
-  final SignalEmmiterGlobal signalEmmiterGlobal;
+  final SignalEmitGlobal signalEmitGlobal;
 
   const VolumeMenu({
-    required this.signalEmmiterGlobal,
+    required this.signalEmitGlobal,
     Key? key,
   }) : super(key: key);
 
@@ -24,18 +25,18 @@ class VolumeMenu extends StatelessWidget {
             ShadowedIconButton(
               shadowOpacity: 0,
               icon: const Icon(UniconsLine.volume_up),
-              onPress: signalEmmiterGlobal.volumeUp,
+              onPress: signalEmitGlobal.volumeUp,
             ),
             const SizedBox(height: 10),
             const TitleButtonsBase(
-              title: 'vol',
+              title: lblVol,
               size: 14,
             ),
             const SizedBox(height: 10),
             ShadowedIconButton(
               shadowOpacity: 0,
               icon: const Icon(UniconsLine.volume),
-              onPress: signalEmmiterGlobal.volumeDown,
+              onPress: signalEmitGlobal.volumeDown,
             ),
           ],
         ),
@@ -44,18 +45,18 @@ class VolumeMenu extends StatelessWidget {
             ShadowedIconButton(
               shadowOpacity: 0,
               icon: const Icon(UniconsLine.angle_up),
-              onPress: signalEmmiterGlobal.nextChannel,
+              onPress: signalEmitGlobal.nextChannel,
             ),
             const SizedBox(height: 10),
             const TitleButtonsBase(
-              title: 'ch',
+              title: lblCh,
               size: 14,
             ),
             const SizedBox(height: 10),
             ShadowedIconButton(
               shadowOpacity: 0,
               icon: const Icon(UniconsLine.angle_down),
-              onPress: signalEmmiterGlobal.previousChannel,
+              onPress: signalEmitGlobal.previousChannel,
             ),
           ],
         ),

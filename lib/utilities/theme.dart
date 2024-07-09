@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../design_system_weincode/foundations/foundation_colors.dart';
+import '../design_system/foundations/foundation_colors.dart';
 
 final darkTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFF1D1F21),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/features/remote_control/widget/number_button.dart';
 
-import '../../controller/main/main_signal_emmiter_controller.dart';
+import '../../controller/main/main_signal_emit_controller.dart';
 
 class NumberMenu extends StatelessWidget {
-  final SignalEmmiterGlobal signalEmmiterGlobal;
+  final SignalEmitGlobal signalEmitGlobal;
   final bool withEnter;
 
   const NumberMenu({
-    required this.signalEmmiterGlobal,
+    required this.signalEmitGlobal,
     required this.withEnter,
     Key? key,
   }) : super(key: key);
@@ -22,15 +22,15 @@ class NumberMenu extends StatelessWidget {
           children: [
             NumberButton(
               number: ' 1 ',
-              onPress: signalEmmiterGlobal.one,
+              onPress: signalEmitGlobal.one,
             ),
             NumberButton(
               number: ' 2 ',
-              onPress: signalEmmiterGlobal.two,
+              onPress: signalEmitGlobal.two,
             ),
             NumberButton(
               number: ' 3 ',
-              onPress: signalEmmiterGlobal.three,
+              onPress: signalEmitGlobal.three,
             ),
           ],
         ),
@@ -42,15 +42,15 @@ class NumberMenu extends StatelessWidget {
           children: [
             NumberButton(
               number: ' 4 ',
-              onPress: signalEmmiterGlobal.four,
+              onPress: signalEmitGlobal.four,
             ),
             NumberButton(
               number: ' 5 ',
-              onPress: signalEmmiterGlobal.five,
+              onPress: signalEmitGlobal.five,
             ),
             NumberButton(
               number: ' 6 ',
-              onPress: signalEmmiterGlobal.six,
+              onPress: signalEmitGlobal.six,
             ),
           ],
         ),
@@ -62,15 +62,15 @@ class NumberMenu extends StatelessWidget {
           children: [
             NumberButton(
               number: ' 7 ',
-              onPress: signalEmmiterGlobal.seven,
+              onPress: signalEmitGlobal.seven,
             ),
             NumberButton(
               number: ' 8 ',
-              onPress: signalEmmiterGlobal.eight,
+              onPress: signalEmitGlobal.eight,
             ),
             NumberButton(
               number: ' 9 ',
-              onPress: signalEmmiterGlobal.nine,
+              onPress: signalEmitGlobal.nine,
             ),
           ],
         ),
@@ -83,16 +83,16 @@ class NumberMenu extends StatelessWidget {
             withEnter == true ?
             NumberButton(
               number: 'Ent.',
-              onPress: signalEmmiterGlobal.enter,
+              onPress: signalEmitGlobal.enter,
             ) : const SizedBox(),
             NumberButton(
               number: ' 0 ',
-              onPress: signalEmmiterGlobal.zero,
+              onPress: signalEmitGlobal.zero,
             ),
             withEnter == true ?
             NumberButton(
               number: 'otro',
-              onPress: signalEmmiterGlobal.ok,
+              onPress: signalEmitGlobal.ok,
             ) : const SizedBox(),
           ],
         )

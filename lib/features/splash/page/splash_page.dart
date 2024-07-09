@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/routes/routes.dart';
 
-import '../../../design_system_weincode/foundations/foundation_colors.dart';
+import '../../../design_system/foundations/foundation_colors.dart';
+import '../../../utilities/constants/constants.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Image.asset(
-            'assets/images/png/logo_png.png',
+            urlLogoApp,
           ),
         ),
       ),

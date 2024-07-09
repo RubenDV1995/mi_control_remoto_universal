@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../../utilities/constants/constants.dart';
+import '../../foundations/foundation_colors.dart';
 
 enum CardBaseDesign {
   facebook,

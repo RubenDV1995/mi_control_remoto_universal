@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
 import 'package:mi_control_remoto_universal/features/loading/widget/loading_widget.dart';
+
+import '../../../design_system/atoms/titles/title_base.dart';
 
 class LoadingPage extends StatelessWidget {
   final String title;
@@ -51,7 +52,9 @@ class Content extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        TitleBase(title: title),
+        TitleBase(
+          title: title,
+        ),
       ],
     );
   }

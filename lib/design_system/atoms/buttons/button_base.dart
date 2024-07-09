@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
+
+import '../../foundations/foundation_colors.dart';
+import '../titles/title_base.dart';
 
 class ButtonBase extends StatelessWidget {
   final void Function() onPressed;
@@ -22,7 +23,6 @@ class ButtonBase extends StatelessWidget {
         onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: WeincodeColorsFoundation.primaryColor,
-
           ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

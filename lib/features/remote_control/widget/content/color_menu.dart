@@ -15,25 +15,25 @@ class ColorMenu extends StatelessWidget {
         ColoredButton(
           color: Colors.red.shade400,
           onPress: Provider.of<MainController>(context, listen: false)
-              .signalEmmiterGlobal
+              .signalEmitGlobal
               .red,
         ),
         ColoredButton(
           color: Colors.green.shade400,
           onPress: Provider.of<MainController>(context, listen: false)
-              .signalEmmiterGlobal
+              .signalEmitGlobal
               .green,
         ),
         ColoredButton(
           color: Colors.yellow.shade400,
           onPress: Provider.of<MainController>(context, listen: false)
-              .signalEmmiterGlobal
+              .signalEmitGlobal
               .yellow,
         ),
         ColoredButton(
           color: Colors.blue.shade400,
           onPress: Provider.of<MainController>(context, listen: false)
-              .signalEmmiterGlobal
+              .signalEmitGlobal
               .blue,
         ),
       ],

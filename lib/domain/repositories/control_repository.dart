@@ -6,4 +6,6 @@ abstract class ControlRepository {
   Future<String> getDeviceId();
 
   Future<List<Items>> getDevicesFromLocalJson();
+
+  Future<List<Items>> getDevicesFromRemoteConfig();
 }

@@ -1,5 +1,6 @@
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
+
+import '../design_system/foundations/foundation_colors.dart';
 
 enum TypeToast {
   info,

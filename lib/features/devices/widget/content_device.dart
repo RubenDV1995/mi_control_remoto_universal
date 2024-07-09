@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mi_control_remoto_universal/domain/repositories/control_repository.dart';
 import 'package:provider/provider.dart';
 
-import '../../../design_system_weincode/atoms/buttons/square_button_base.dart';
-import '../../../design_system_weincode/molecules/slot/slot_base.dart';
+import '../../../design_system/atoms/buttons/square_button_base.dart';
+import '../../../design_system/molecules/slot/slot_base.dart';
 import '../../../utilities/skeletons/device_skeleton.dart';
 import '../../remote_control/controller/main/main_controller.dart';
 

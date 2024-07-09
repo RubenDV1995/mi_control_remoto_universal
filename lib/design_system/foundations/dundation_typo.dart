@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/tokens/typography.dart';
+
+import '../tokens/typography.dart';
 
 class WeincodeTypographyFoundation {
   WeincodeTypographyFoundation._();

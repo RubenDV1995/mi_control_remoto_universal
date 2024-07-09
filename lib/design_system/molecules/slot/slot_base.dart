@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/subtitles/subtitle.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
 
 import '../../atoms/buttons/button_base.dart';
+import '../../atoms/subtitles/subtitle.dart';
+import '../../atoms/titles/title_base.dart';
 
 class SlotBase extends StatelessWidget {
   final String title;

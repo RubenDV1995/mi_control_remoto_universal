@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 import 'package:provider/provider.dart';
 
 import '../../../features/remote_control/controller/main/main_controller.dart';
 import '../../../utilities/constants/constants.dart';
+import '../../foundations/foundation_colors.dart';
 
 part 'container_information.dart';
 

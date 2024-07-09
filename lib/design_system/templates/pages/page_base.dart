@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../../utilities/constants/constants.dart';
 import '../../atoms/titles/title_base.dart';
+import '../../foundations/foundation_colors.dart';
 
 enum PageTemplate { splashscreen, home, devices, settings }
 
@@ -115,7 +115,7 @@ class DevicesTemplate extends StatelessWidget {
   }
 }
 
-class AppBarTemplate extends StatelessWidget with PreferredSizeWidget {
+class AppBarTemplate extends StatelessWidget implements PreferredSizeWidget {
   final IconData iconData;
   final String title;
 

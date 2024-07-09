@@ -1,4 +1,4 @@
-part of 'inoformation_pane.dart';
+part of 'information_pane.dart';
 
 class ContainerInformation extends StatelessWidget {
   final String title;

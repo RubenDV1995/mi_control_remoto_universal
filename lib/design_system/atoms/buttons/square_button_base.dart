@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 
 import '../../../domain/models/device_model.dart';
+import '../../foundations/foundation_colors.dart';
 import '../image/image_network_base.dart';
 import '../titles/title_base.dart';
 

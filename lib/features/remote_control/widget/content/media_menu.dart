@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../controller/main/main_signal_emmiter_controller.dart';
+import '../../controller/main/main_signal_emit_controller.dart';
 import '../shadowed_icon_button.dart';
 
 class MediaMenu extends StatelessWidget {
-  final SignalEmmiterGlobal signalEmmiterGlobal;
+  final SignalEmitGlobal signalEmitGlobal;
 
   const MediaMenu({
-    required this.signalEmmiterGlobal,
+    required this.signalEmitGlobal,
     Key? key,
   }) : super(key: key);
 
@@ -23,7 +23,7 @@ class MediaMenu extends StatelessWidget {
             UniconsLine.step_backward,
             size: 24,
           ),
-          onPress: signalEmmiterGlobal.backwards,
+          onPress: signalEmitGlobal.backwards,
         ),
         ShadowedIconButton(
           padding: const EdgeInsets.all(10),
@@ -34,7 +34,7 @@ class MediaMenu extends StatelessWidget {
               size: 24,
             ),
           ),
-          onPress: signalEmmiterGlobal.play,
+          onPress: signalEmitGlobal.play,
         ),
         ShadowedIconButton(
           padding: const EdgeInsets.all(10),
@@ -42,7 +42,7 @@ class MediaMenu extends StatelessWidget {
             UniconsLine.pause,
             size: 24,
           ),
-          onPress: signalEmmiterGlobal.pause,
+          onPress: signalEmitGlobal.pause,
         ),
         ShadowedIconButton(
           padding: const EdgeInsets.all(10),
@@ -50,7 +50,7 @@ class MediaMenu extends StatelessWidget {
             UniconsLine.skip_forward,
             size: 24,
           ),
-          onPress: signalEmmiterGlobal.forward,
+          onPress: signalEmitGlobal.forward,
         ),
       ],
     );

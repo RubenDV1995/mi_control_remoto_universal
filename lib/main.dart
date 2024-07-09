@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mi_control_remoto_universal/data/repositories_implementation/settings_repository_impl.dart';
@@ -12,14 +13,27 @@ import 'package:mi_control_remoto_universal/utilities/constants/constants.dart';
 import 'package:provider/provider.dart';
 
 import 'data/repositories_implementation/control_repository_impl.dart';
+import 'data/services/firebase/remote_config_services.dart';
 import 'features/remote_control/controller/main/main_controller.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  final firebaseRemoteConfigService = RemoteConfigService(
+    firebaseRemoteConfig: FirebaseRemoteConfig.instance,
+    remoteConfigSettings: RemoteConfigSettings(
+      fetchTimeout: const Duration(seconds: 10),
+      minimumFetchInterval: Duration.zero,
+    ),
+  );
+
+  await firebaseRemoteConfigService.init();
+
   runApp(
     MultiProvider(
       providers: [
@@ -34,6 +48,7 @@ void main() async {
             localJsonService: LocalJsonService(
               urlBase: urlBase,
             ),
+            firebaseRemoteConfig: firebaseRemoteConfigService,
           ),
         ),
       ],

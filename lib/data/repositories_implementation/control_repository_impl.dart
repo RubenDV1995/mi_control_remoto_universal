@@ -2,6 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mi_control_remoto_universal/domain/repositories/control_repository.dart';
 
 import '../../domain/models/device_model.dart';
+import '../services/firebase/remote_config_services.dart';
 import '../services/local/json/local_json_service.dart';
 
 const String _keyDevice = 'device';
@@ -9,12 +10,15 @@ const String _keyDevice = 'device';
 class ControlRepositoryImpl implements ControlRepository {
   final FlutterSecureStorage _flutterSecureStorage;
   final LocalJsonService _localJsonService;
+  final RemoteConfigService _firebaseRemoteConfig;
 
   ControlRepositoryImpl({
     required FlutterSecureStorage flutterSecureStorage,
     required LocalJsonService localJsonService,
+    required RemoteConfigService firebaseRemoteConfig,
   })  : _flutterSecureStorage = flutterSecureStorage,
-        _localJsonService = localJsonService;
+        _localJsonService = localJsonService,
+        _firebaseRemoteConfig = firebaseRemoteConfig;
 
   @override
   Future<void> setDeviceId(int idDevice) async {
@@ -43,5 +47,11 @@ class ControlRepositoryImpl implements ControlRepository {
   Future<List<Items>> getDevicesFromLocalJson() async {
     List<Items> idDevice = await _localJsonService.request('devices.json');
     return idDevice;
+  }
+
+  @override
+  Future<List<Items>> getDevicesFromRemoteConfig() async {
+    final devices = _firebaseRemoteConfig.getEventDevicesJson();
+    return devices;
   }
 }

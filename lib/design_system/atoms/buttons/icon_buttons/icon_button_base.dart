@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
+
+import '../../../foundations/foundation_colors.dart';
 
 class IconButtonBase extends StatelessWidget {
   final void Function() onPressed;

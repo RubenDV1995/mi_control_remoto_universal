@@ -18,13 +18,22 @@ const String lblConnectWith = 'Conectate con';
 const String lblTwitter = 'Twitter';
 const String lblFacebook = 'Facebook';
 const String lblSocialIcon = 'Social media icon';
+const String lblOk = 'OK';
+const String lblVol = 'vol';
+const String lblCh = 'ch';
 
 ///ERRORS
 const String lblErrorDevices = 'Disculpa el error al recuperar los dispositivos. Estamos trabajando para solucionarlo';
 const String lblErrorFilter = 'Disculpa el error al filtrar. Estamos trabajando en ello.';
+const String lblErrorFirebase = 'Firebase error';
 
 ///IMAGES
 const String urlFacebookBackground = 'assets/images/jpg/background_facebook1.jpg';
 const String urlTwitterBackground = 'assets/images/jpg/background_twitter1.jpg';
+const String urlLogoApp = 'assets/images/png/logo_png.png';
+
+
+///FIREBASE
+const String lblRemoteConfigDevices = 'devices_info';
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../design_system_weincode/foundations/foundation_colors.dart';
+import '../design_system/foundations/foundation_colors.dart';
 
 class BaseButton extends StatelessWidget {
   final Widget child;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/subtitles/subtitle.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/titles/title_base.dart';
 import 'package:mi_control_remoto_universal/utilities/toast.dart';
 import 'package:provider/provider.dart';
 
-import '../../../design_system_weincode/atoms/information/inoformation_pane.dart';
-import '../../../design_system_weincode/atoms/textfiled/text_field_filter_base.dart';
-import '../../../design_system_weincode/templates/pages/page_base.dart';
+import '../../../design_system/atoms/information/information_pane.dart';
+import '../../../design_system/atoms/subtitles/subtitle.dart';
+import '../../../design_system/atoms/text_field/text_field_filter_base.dart';
+import '../../../design_system/atoms/titles/title_base.dart';
+import '../../../design_system/templates/pages/page_base.dart';
 import '../../../domain/models/device_model.dart';
 import '../../../domain/repositories/control_repository.dart';
 import '../../../utilities/constants/constants.dart';
@@ -36,7 +36,7 @@ class _DevicesPageState extends State<DevicesPage> {
       List<Items> data = await Provider.of<ControlRepository>(
         context,
         listen: false,
-      ).getDevicesFromLocalJson();
+      ).getDevicesFromRemoteConfig();
       device.setLoading(true);
       await Future.delayed(
         const Duration(seconds: 1),

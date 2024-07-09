@@ -6,14 +6,13 @@ import 'package:mi_control_remoto_universal/features/remote_control/widget/shado
 import 'package:mi_control_remoto_universal/features/remote_control/widget/turn_off_button.dart';
 import 'package:unicons/unicons.dart';
 
-import '../controller/main/main_signal_emmiter_controller.dart';
+import '../controller/main/main_signal_emit_controller.dart';
 import '../widget/content/directional_menu.dart';
-import '../widget/content/number_menu.dart';
 
 class LgRemoteControlPage extends StatelessWidget {
-  final SignalEmmiterGlobal signalEmmiterGlobal;
+  final SignalEmitGlobal signalEmitGlobal;
 
-  const LgRemoteControlPage({required this.signalEmmiterGlobal, Key? key})
+  const LgRemoteControlPage({required this.signalEmitGlobal, Key? key})
       : super(key: key);
 
   @override
@@ -29,24 +28,24 @@ class LgRemoteControlPage extends StatelessWidget {
               offset: const Offset(0, 20),
               child: ShadowedIconButton(
                 icon: const Icon(UniconsLine.home_alt),
-                onPress: signalEmmiterGlobal.home,
+                onPress: signalEmitGlobal.home,
               ),
             ),
             ShadowedIconButton(
               icon: const Icon(UniconsLine.info_circle),
-              onPress: signalEmmiterGlobal.info,
+              onPress: signalEmitGlobal.info,
             ),
             Transform.translate(
               offset: const Offset(0, 20),
               child: TurnOnOffButton(
-                onPress: signalEmmiterGlobal.turnOnOff,
+                onPress: signalEmitGlobal.turnOnOff,
               ),
             ),
           ],
         ),
         const SizedBox(height: 15),
         DirectionalMenu(
-          signalEmmiterGlobal: signalEmmiterGlobal,
+          signalEmitGlobal: signalEmitGlobal,
         ),
         const SizedBox(height: 15),
         Row(
@@ -56,37 +55,33 @@ class LgRemoteControlPage extends StatelessWidget {
               offset: const Offset(0, -20),
               child: ShadowedIconButton(
                 icon: const Icon(UniconsLine.exit),
-                onPress: signalEmmiterGlobal.exit,
+                onPress: signalEmitGlobal.exit,
               ),
             ),
             ShadowedIconButton(
               icon: const Icon(UniconsLine.volume_mute),
-              onPress: signalEmmiterGlobal.mute,
+              onPress: signalEmitGlobal.mute,
             ),
             Transform.translate(
               offset: const Offset(0, -20),
               child: ShadowedIconButton(
                 icon: const Icon(UniconsLine.arrow_left),
-                onPress: signalEmmiterGlobal.back,
+                onPress: signalEmitGlobal.back,
               ),
             ),
           ],
         ),
         const SizedBox(height: 10),
         VolumeMenu(
-          signalEmmiterGlobal: signalEmmiterGlobal,
+          signalEmitGlobal: signalEmitGlobal,
         ),
         const SizedBox(height: 30),
         MediaMenu(
-          signalEmmiterGlobal: signalEmmiterGlobal,
+          signalEmitGlobal: signalEmitGlobal,
         ),
         const SizedBox(height: 30),
         const ColorMenu(),
         const SizedBox(height: 30),
-        NumberMenu(
-          signalEmmiterGlobal: signalEmmiterGlobal,
-          withEnter: true,
-        ),
         const SizedBox(height: 30),
       ],
     );

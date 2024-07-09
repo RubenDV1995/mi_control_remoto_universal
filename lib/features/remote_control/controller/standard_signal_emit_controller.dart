@@ -1,8 +1,8 @@
 import 'package:mi_control_remoto_universal/data/services/local/generic_signal_codes.dart';
-import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emmiter_controller.dart';
+import 'package:mi_control_remoto_universal/features/remote_control/controller/main/main_signal_emit_controller.dart';
 import 'package:mi_control_remoto_universal/utilities/emmit.dart';
 
-class StandardRemoteSignalEmmiter implements SignalEmmiterGlobal {
+class StandardRemoteSignalEmit implements SignalEmitGlobal {
   @override
   void turnOnOff() {
     emmit(GenericSignalCodes.power);

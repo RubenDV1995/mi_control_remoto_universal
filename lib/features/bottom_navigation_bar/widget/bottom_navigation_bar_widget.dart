@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/foundations/foundation_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../../design_system/foundations/foundation_colors.dart';
 import '../../../utilities/constants/constants.dart';
 import '../controller/bottom_navigation_controller.dart';
 

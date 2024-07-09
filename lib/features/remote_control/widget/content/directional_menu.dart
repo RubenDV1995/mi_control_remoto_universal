@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../../design_system_weincode/foundations/foundation_colors.dart';
+import '../../../../design_system/foundations/foundation_colors.dart';
 import '../../../../utilities/circular_shadow.dart';
-import '../../controller/main/main_signal_emmiter_controller.dart';
+import '../../controller/main/main_signal_emit_controller.dart';
 import '../arrow_button.dart';
 import '../ok_button.dart';
 
 class DirectionalMenu extends StatelessWidget {
-  final SignalEmmiterGlobal signalEmmiterGlobal;
+  final SignalEmitGlobal signalEmitGlobal;
 
   const DirectionalMenu({
-    required this.signalEmmiterGlobal,
+    required this.signalEmitGlobal,
     Key? key,
   }) : super(key: key);
 
@@ -32,24 +32,24 @@ class DirectionalMenu extends StatelessWidget {
               const SizedBox.shrink(),
               ArrowButton(
                 icon: UniconsLine.angle_up,
-                onPress: signalEmmiterGlobal.navigateUp,
+                onPress: signalEmitGlobal.navigateUp,
               ),
               const SizedBox.shrink(),
               ArrowButton(
                 icon: UniconsLine.angle_left,
-                onPress: signalEmmiterGlobal.navigateLeft,
+                onPress: signalEmitGlobal.navigateLeft,
               ),
               OkButton(
-                onPress: signalEmmiterGlobal.ok,
+                onPress: signalEmitGlobal.ok,
               ),
               ArrowButton(
                 icon: UniconsLine.angle_right,
-                onPress: signalEmmiterGlobal.navigateRight,
+                onPress: signalEmitGlobal.navigateRight,
               ),
               const SizedBox.shrink(),
               ArrowButton(
                 icon: UniconsLine.angle_down,
-                onPress: signalEmmiterGlobal.navigateDown,
+                onPress: signalEmitGlobal.navigateDown,
               ),
               const SizedBox.shrink(),
             ],

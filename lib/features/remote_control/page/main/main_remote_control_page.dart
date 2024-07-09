@@ -3,7 +3,7 @@ import 'package:mi_control_remoto_universal/domain/repositories/control_reposito
 import 'package:mi_control_remoto_universal/features/remote_control/page/lg_remote_control_page.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../design_system_weincode/atoms/image/image_network_base.dart';
+import '../../../../design_system/atoms/image/image_network_base.dart';
 import '../../../../domain/models/device_model.dart';
 import '../../controller/main/main_controller.dart';
 import '../samsung_remote_control_page.dart';
@@ -63,7 +63,7 @@ class _RemoteControlState extends State<RemoteControl> {
     List<Items> items = await Provider.of<ControlRepository>(
       context,
       listen: false,
-    ).getDevicesFromLocalJson();
+    ).getDevicesFromRemoteConfig();
     Provider.of<MainController>(
       context,
       listen: false,
@@ -76,20 +76,20 @@ class _RemoteControlState extends State<RemoteControl> {
   @override
   Widget build(BuildContext context) {
     final currentDeviceId = Provider.of<MainController>(context).currentItem;
-    final signalEmmiterGlobal =
-        Provider.of<MainController>(context, listen: false).signalEmmiterGlobal;
+    final signalEmitGlobal =
+        Provider.of<MainController>(context, listen: false).signalEmitGlobal;
     if (currentDeviceId.id == '2') {
       return SamsungRemoteControlPage(
-        signalEmmiterGlobal: signalEmmiterGlobal,
+        signalEmitGlobal: signalEmitGlobal,
       );
     }
     if (currentDeviceId.id == '3') {
       return LgRemoteControlPage(
-        signalEmmiterGlobal: signalEmmiterGlobal,
+        signalEmitGlobal: signalEmitGlobal,
       );
     }
     return StandardRemoteControlPage(
-      signalEmmiterGlobal: signalEmmiterGlobal,
+      signalEmitGlobal: signalEmitGlobal,
     );
   }
 }

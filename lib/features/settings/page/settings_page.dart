@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/atoms/listview/listview_base.dart';
-import 'package:mi_control_remoto_universal/design_system_weincode/templates/pages/page_base.dart';
 import 'package:mi_control_remoto_universal/domain/repositories/settings_repository.dart';
 import 'package:mi_control_remoto_universal/features/settings/controller/settings_controller.dart';
 import 'package:mi_control_remoto_universal/utilities/constants/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../design_system_weincode/atoms/buttons/icon_buttons/icon_button_base.dart';
-import '../../../design_system_weincode/atoms/card/card_base.dart';
-import '../../../design_system_weincode/atoms/subtitles/subtitle.dart';
-import '../../../design_system_weincode/atoms/terms/terms_base.dart';
-import '../../../design_system_weincode/atoms/titles/title_base.dart';
+import '../../../design_system/atoms/buttons/icon_buttons/icon_button_base.dart';
+import '../../../design_system/atoms/card/card_base.dart';
+import '../../../design_system/atoms/listview/listview_base.dart';
+import '../../../design_system/atoms/subtitles/subtitle.dart';
+import '../../../design_system/atoms/terms/terms_base.dart';
+import '../../../design_system/atoms/titles/title_base.dart';
+import '../../../design_system/templates/pages/page_base.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);

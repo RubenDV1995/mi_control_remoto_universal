@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "95532053779",
+    "project_id": "uniremote-aade5",
+    "storage_bucket": "uniremote-aade5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95532053779:android:c494069e737dd7fb0016e6",
+        "android_client_info": {
+          "package_name": "com.rubendv.mi_control_remoto_universal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95532053779-d7lpkoshgb0p0nhrmabgjul9cla1n0cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtay8D5drC6tIxwMyzc6McV4JhF8_r7bE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95532053779-d7lpkoshgb0p0nhrmabgjul9cla1n0cs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "95532053779-b01mhfrcc27n5781d1p8drkepqr3t9r2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rubendv.miControlRemotoUniversal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
